@@ -1,10 +1,12 @@
 var currentDayEl = $('#currentDay');
 var timeContainer = $('#container');
 
-//creating timeblock elelemtns 
+//creating timeblock elements --> not displaying lines 5-28
 var timeDivs = $('<div>');
-timeDivs.addClass('input-group');
+
+//timeDivs.addClass('input-group');
 timeContainer.append(timeDivs);
+var foot = $('<footer> Hi </footer');
 
 var timeHours = [
     '9 A.M.',
@@ -19,7 +21,7 @@ var timeHours = [
 ];
 
 for (var i = 0; i < timeHours.length; i++) {
-    var timeBlocksEl = $('<span>');
+    var timeBlocksEl = $('<div>');
     timeBlocksEl.text(timeHours[i]);
     timeBlocksEl.addClass('input-group-text');
     timeDivs.append(timeBlocksEl);
