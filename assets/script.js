@@ -20,14 +20,18 @@ var timeHours = [
 
 //loop to create time blocks and styling of elements using Bootstrap classes
 for (var i = 0; i < timeHours.length; i++) {
+
     var timeBlocksEl = $('<span>');
     var inputEl = $('<input>');
-    inputEl.addClass('form-control');
     var buttonEl = $('<button>Save</button>')
-    buttonEl.addClass('btn btn-outline-primary');
+
+    //styling for time blocks
+    timeBlocksEl.addClass('input-group-text');
+    inputEl.addClass('form-control');
+    buttonEl.addClass('btn btn-outline-primary bg-primary text-white');
+    inputEl.attr('placeholder', 'Schedule Event');
 
     timeBlocksEl.text(timeHours[i]);
-    timeBlocksEl.addClass('input-group-text');
 
     timeDivs.append(timeBlocksEl);
     timeBlocksEl.append(inputEl);
