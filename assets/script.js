@@ -1,13 +1,11 @@
 var currentDayEl = $('#currentDay');
-var timeContainer = $('#container');
+var timeContainer = $('.container');
 
-//creating timeblock elements --> not displaying lines 5-28
+//creating timeblock elements by appending divs to container
 var timeDivs = $('<div>');
-
-//timeDivs.addClass('input-group');
 timeContainer.append(timeDivs);
-var foot = $('<footer> Hi </footer');
 
+//variable object containing array of times
 var timeHours = [
     '9 A.M.',
     '10 A.M.',
@@ -20,12 +18,22 @@ var timeHours = [
     '5 P.M.',
 ];
 
+//loop to create time blocks and styling of elements using Bootstrap classes
 for (var i = 0; i < timeHours.length; i++) {
-    var timeBlocksEl = $('<div>');
+    var timeBlocksEl = $('<span>');
+    var inputEl = $('<input>');
+    inputEl.addClass('form-control');
+    var buttonEl = $('<button>Save</button>')
+    buttonEl.addClass('btn btn-outline-primary');
+
     timeBlocksEl.text(timeHours[i]);
     timeBlocksEl.addClass('input-group-text');
+
     timeDivs.append(timeBlocksEl);
+    timeBlocksEl.append(inputEl);
+    timeBlocksEl.append(buttonEl);
 }
+
 
 
 var currentHour = parseInt(moment().format("H"));
