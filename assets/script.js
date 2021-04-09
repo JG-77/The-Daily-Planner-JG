@@ -18,6 +18,7 @@ var timeHours = [
     '5 P.M.',
 ];
 
+
 //loop to create time blocks and styling of elements using Bootstrap classes
 for (var i = 0; i < timeHours.length; i++) {
 
@@ -26,7 +27,7 @@ for (var i = 0; i < timeHours.length; i++) {
     var buttonEl = $('<button>Save</button>')
 
     //styling for time blocks
-    timeBlocksEl.addClass('input-group-text');
+    timeBlocksEl.addClass('input-group-text  time-block');
     inputEl.addClass('form-control');
     buttonEl.addClass('btn btn-outline-success bg-success text-white');
     inputEl.attr('placeholder', 'Schedule Event');
@@ -45,22 +46,20 @@ var currentHour = parseInt(moment().format("H"));
 console.log(currentHour);
 
 //get id of each timeBlockEl and add styling class based on current hour
-function colorByHour(timeBlocksEl) {
-    if (parseInt(timeBlocksEl.id) < currentHour) {
+$(".time-block").each(function(){
+    var blockID = $(this).attr("id");
+
+    if (parseInt(blockID) < currentHour) {
         timeBlocksEl.addClass('past');
-        console.log(timeBlocksEl)
         return 'past';
-    }else if (parseInt(timeBlocksEl.id) === currentHour) {
+    }else if (parseInt(blockID) === currentHour) {
         timeBlocksEl.addClass('present');
-        console.log(timeBlocksEl)
         return 'present';
     } else {
         timeBlocksEl.addClass('future');
         return 'future';
     }
-}
-
-colorByHour();
+})
 
 
 //Displays current date and time on jumbotron
