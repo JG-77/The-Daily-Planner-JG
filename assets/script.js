@@ -6,7 +6,6 @@ var timeDivs = $('<div>');
 timeContainer.append(timeDivs);
 
 $( document ).ready(function() {
-    console.log( "document loaded" );
 });
 
 //variable object containing array of times
@@ -51,7 +50,7 @@ async function generateTimeBlocks() { //wrapped in a function
 var currentHour = parseInt(moment().format("H"));
 console.log(currentHour);
 
-//get id of each timeBlockEl and add styling class based on current hour
+//compare the id of each time-block class to current hour and add styling classes based on time
 function doColorCode() { //wrapped in a function
     $(".time-block").each(function(){
         var blockID = $(this).attr("id");
@@ -72,6 +71,19 @@ async function run(){
 };
 
 run();//runs function
+
+//stores input in local storage
+function saveInput() {
+
+}
+
+//click event for saving 
+
+
+//gets events from local storage
+function getSavedInput() {
+
+}
 
 //Displays current date and time on jumbotron
 function currentDayAndTime() {
