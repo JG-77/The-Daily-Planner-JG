@@ -46,18 +46,16 @@ var currentHour = parseInt(moment().format("H"));
 console.log(currentHour);
 
 //get id of each timeBlockEl and add styling class based on current hour
+//only 5p.m. is being changed!!!
 $(".time-block").each(function(){
     var blockID = $(this).attr("id");
 
     if (parseInt(blockID) < currentHour) {
         timeBlocksEl.addClass('past');
-        return 'past';
-    }else if (parseInt(blockID) === currentHour) {
+    } else if (parseInt(blockID) === currentHour) {
         timeBlocksEl.addClass('present');
-        return 'present';
     } else {
         timeBlocksEl.addClass('future');
-        return 'future';
     }
 })
 
