@@ -28,9 +28,10 @@ for (var i = 0; i < timeHours.length; i++) {
     //styling for time blocks
     timeBlocksEl.addClass('input-group-text');
     inputEl.addClass('form-control');
-    buttonEl.addClass('btn btn-outline-primary bg-primary text-white');
+    buttonEl.addClass('btn btn-outline-success bg-success text-white');
     inputEl.attr('placeholder', 'Schedule Event');
-    inputEl.attr('id', i + 9);
+    //adds id to each time block based on the hour
+    timeBlocksEl.attr('id', i + 9);
 
     timeBlocksEl.text(timeHours[i]);
 
@@ -39,10 +40,27 @@ for (var i = 0; i < timeHours.length; i++) {
     timeBlocksEl.append(buttonEl);
 }
 
-
-
+//Gets current hour in military time
 var currentHour = parseInt(moment().format("H"));
 console.log(currentHour);
+
+//get id of each timeBlockEl and add styling class based on current hour
+function colorByHour(timeBlocksEl) {
+    if (parseInt(timeBlocksEl.id) < currentHour) {
+        timeBlocksEl.addClass('past');
+        console.log(timeBlocksEl)
+        return 'past';
+    }else if (parseInt(timeBlocksEl.id) === currentHour) {
+        timeBlocksEl.addClass('present');
+        console.log(timeBlocksEl)
+        return 'present';
+    } else {
+        timeBlocksEl.addClass('future');
+        return 'future';
+    }
+}
+
+colorByHour();
 
 
 //Displays current date and time on jumbotron
