@@ -21,7 +21,7 @@ var timeHours = [
 //loop to create time blocks and styling of elements using Bootstrap classes
 for (var i = 0; i < timeHours.length; i++) {
 
-    var timeBlocksEl = $('<span>');
+    var timeBlocksEl = $('<div>');
     var inputEl = $('<input>');
     var buttonEl = $('<button>Save</button>')
 
