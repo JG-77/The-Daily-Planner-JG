@@ -30,6 +30,7 @@ for (var i = 0; i < timeHours.length; i++) {
     inputEl.addClass('form-control');
     buttonEl.addClass('btn btn-outline-primary bg-primary text-white');
     inputEl.attr('placeholder', 'Schedule Event');
+    inputEl.attr('id', i + 9);
 
     timeBlocksEl.text(timeHours[i]);
 
