@@ -57,11 +57,11 @@ function doColorCode() { //wrapped in a function
         var blockID = $(this).attr("id");
         
         if (parseInt(blockID) < currentHour) {
-            timeBlocksEl.addClass('past');
+            $(this).addClass('past');
         } else if (parseInt(blockID) === currentHour) {
-            timeBlocksEl.addClass('present');
+            $(this).addClass('present');
         } else {
-            timeBlocksEl.addClass('future');
+            $(this).addClass('future');
         }
     })
 }
