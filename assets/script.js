@@ -1,9 +1,13 @@
 var currentDayEl = $('#currentDay');
 var timeContainer = $('.container');
-
+var timeBlocksEl;
 //creating timeblock elements by appending divs to container
 var timeDivs = $('<div>');
 timeContainer.append(timeDivs);
+
+$( document ).ready(function() {
+    console.log( "document loaded" );
+});
 
 //variable object containing array of times
 var timeHours = [
@@ -20,25 +24,27 @@ var timeHours = [
 
 
 //loop to create time blocks and styling of elements using Bootstrap classes
-for (var i = 0; i < timeHours.length; i++) {
+async function generateTimeBlocks() {
+    for (var i = 0; i < timeHours.length; i++) {
 
-    var timeBlocksEl = $('<div>');
-    var inputEl = $('<input>');
-    var buttonEl = $('<button>Save</button>')
+        timeBlocksEl = $('<div>');
+        var inputEl = $('<input>');
+        var buttonEl = $('<button>Save</button>')
 
-    //styling for time blocks
-    timeBlocksEl.addClass('input-group-text  time-block');
-    inputEl.addClass('form-control');
-    buttonEl.addClass('btn btn-outline-success bg-success text-white');
-    inputEl.attr('placeholder', 'Schedule Event');
-    //adds id to each time block based on the hour
-    timeBlocksEl.attr('id', i + 9);
+        //styling for time blocks
+        timeBlocksEl.addClass('input-group-text  time-block');
+        inputEl.addClass('form-control');
+        buttonEl.addClass('btn btn-outline-success bg-success text-white');
+        inputEl.attr('placeholder', 'Schedule Event');
+        //adds id to each time block based on the hour
+        timeBlocksEl.attr('id', i + 9);
 
-    timeBlocksEl.text(timeHours[i]);
+        timeBlocksEl.text(timeHours[i]);
 
-    timeDivs.append(timeBlocksEl);
-    timeBlocksEl.append(inputEl);
-    timeBlocksEl.append(buttonEl);
+        timeDivs.append(timeBlocksEl);
+        timeBlocksEl.append(inputEl);
+        timeBlocksEl.append(buttonEl);
+    }
 }
 
 //Gets current hour in military time
@@ -46,19 +52,26 @@ var currentHour = parseInt(moment().format("H"));
 console.log(currentHour);
 
 //get id of each timeBlockEl and add styling class based on current hour
-//only 5p.m. is being changed!!!
-$(".time-block").each(function(){
-    var blockID = $(this).attr("id");
+async function doColorCode() {
+    $(".time-block").each(function(){
+        var blockID = $(this).attr("id");
+        
+        if (parseInt(blockID) < currentHour) {
+            timeBlocksEl.addClass('past');
+        } else if (parseInt(blockID) === currentHour) {
+            timeBlocksEl.addClass('present');
+        } else {
+            timeBlocksEl.addClass('future');
+        }
+    })
+}
 
-    if (parseInt(blockID) < currentHour) {
-        timeBlocksEl.addClass('past');
-    } else if (parseInt(blockID) === currentHour) {
-        timeBlocksEl.addClass('present');
-    } else {
-        timeBlocksEl.addClass('future');
-    }
-})
+async function run(){
+    await generateTimeBlocks(); //this will wait for this function to finish before moving forward
+    doColorCode(); //once the time blocks are generated handle the styling
+};
 
+run();//runs function
 
 //Displays current date and time on jumbotron
 function currentDayAndTime() {
