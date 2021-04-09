@@ -24,7 +24,7 @@ var timeHours = [
 
 
 //loop to create time blocks and styling of elements using Bootstrap classes
-async function generateTimeBlocks() {
+async function generateTimeBlocks() { //wrapped in a function
     for (var i = 0; i < timeHours.length; i++) {
 
         timeBlocksEl = $('<div>');
@@ -52,7 +52,7 @@ var currentHour = parseInt(moment().format("H"));
 console.log(currentHour);
 
 //get id of each timeBlockEl and add styling class based on current hour
-async function doColorCode() {
+function doColorCode() { //wrapped in a function
     $(".time-block").each(function(){
         var blockID = $(this).attr("id");
         
