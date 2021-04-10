@@ -7,9 +7,9 @@ timeContainer.append(timeDivs);
 
 //added footer
 var footerEl = $('<footer>');
-var h2El = $('<h2>Have a great day!</h2>');
-footerEl.append(h2El);
 footerEl.addClass('bg-success text-white mt-4');
+var h2El = $('<h2>Have a great day!</h2>');
+footerEl.append(h2El); //????
 
 $( document ).ready(function() {
 });
@@ -39,7 +39,7 @@ async function generateTimeBlocks() {
         //styling for time blocks
         timeBlocksEl.addClass('input-group-text time-block');
         inputEl.addClass('form-control input-value');
-        buttonEl.addClass('btn btn-outline-success bg-success text-white');
+        buttonEl.addClass('btn btn-outline-success bg-success text-white m-1');
         inputEl.attr('placeholder', 'Schedule Event');
         //adds id to each time block based on the hour
         timeBlocksEl.attr('id', i + 9);
@@ -94,17 +94,20 @@ $('.btn').on('click', function() {
     getSavedInput();
 })
 
+
+var timeBlockId = $('.time-block').attr('id');
+$('#9').val(localStorage.getItem('9'));
+
 //gets events from local storage
 function getSavedInput() {
 
-    var timeBlockId = $('.time-block').attr('id');
     var inputVal = $('.time-block').children('input').val();
-    var show = inputVal.val(localStorage.getItem(timeBlockId));
+    //var show = inputVal.val(localStorage.getItem(timeBlockId));
     var display = localStorage.getItem(timeBlockId);
 
     console.log(inputVal);
     console.log(display);
-    show.text(display); 
+    //show.text(display); 
     //how to i get storage values to display back into input sections?
 }
 
