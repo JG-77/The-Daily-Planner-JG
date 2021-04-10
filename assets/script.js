@@ -44,7 +44,7 @@ async function generateTimeBlocks() {
         inputEl.attr('placeholder', 'Schedule Event');
         inputEl.attr('type', 'text');
         inputEl.attr('aria-label', 'Schedule Event');
-       buttonEl.attr('type', 'button');
+        buttonEl.attr('type', 'button');
 
         timeBlocksEl.attr('id', i + 9); //adds id to each time block based on the hour
         timeBlocksEl.text(timeHours[i]);//inserts a different time from object to each time block 
