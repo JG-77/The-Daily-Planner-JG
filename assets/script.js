@@ -1,6 +1,5 @@
 var currentDayEl = $('#currentDay');
 var timeContainer = $('.container');
-//var buttonEl = $('.btn');
 var timeBlocksEl;
 //creating timeblock elements by appending divs to container
 var timeDivs = $('<div>');
@@ -52,7 +51,7 @@ var currentHour = parseInt(moment().format("H"));
 console.log(currentHour);
 
 //compare the id of each time-block class to current hour and add styling classes based on time
-function doColorCode() { //wrapped in a function
+function doColorCode() { 
     $(".time-block").each(function(){
         var blockID = $(this).attr("id");
         
@@ -77,16 +76,13 @@ run();//runs function at page load
 //stores input in local storage
 function saveInput() {
     $('.time-block').each(function(){
-        var inputVal = $(this).children('input').val(); //have to grab this based on what $(time-block) console logs here
-        var timeBlockId = $(this).attr('id');//have to grab that id similarly
-        //console.log($(this))
-        //console.log($('.time-block'));
-        //console.log(inputVal);
+        var inputVal = $(this).children('input').val(); 
+        var timeBlockId = $(this).attr('id');
         localStorage.setItem(timeBlockId, inputVal);
     })
 }
 
-//click event for saving --> how to I identify all the 'save' buttons???
+//click event for saving 
 $('.btn').on('click', function() {
     saveInput();
     getSavedInput();
@@ -95,7 +91,8 @@ $('.btn').on('click', function() {
 //gets events from local storage
 function getSavedInput() {
     var inputVal = $('.time-block').children('input').val();
-    inputVal.text(localStorage.getItem(timeBlockId, inputVal));
+    var timeBlockId = $(this).attr('id');
+    inputVal.text(localStorage.getItem(timeBlockId, inputVal)); //How do I get input to text,content saved entries??
     
 }
 
