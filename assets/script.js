@@ -100,6 +100,7 @@ $('.btn').on('click', function() {
 function currentDayAndTime() {
     var currently = moment().format('[Today is] MMM DD, YYYY [at] hh:mm:ss a');
     currentDayEl.text(currently); 
+    currentDayEl.addClass('hour bg-info');
 }
 
 setInterval(currentDayAndTime, 1000);
