@@ -1,7 +1,7 @@
 var currentDayEl = $('#currentDay');
 var timeContainer = $('.container');
 //var buttonEl = $('.btn');
-//var timeBlocksEl;
+var timeBlocksEl;
 //creating timeblock elements by appending divs to container
 var timeDivs = $('<div>');
 timeContainer.append(timeDivs);
@@ -73,18 +73,30 @@ async function run(){
 
 run();//runs function
 
-//stores input in local storage
-function saveInput() {
+/*function saveInput() {
     $('.input-value').each(function(){
         var inputVal = $(this).val();
         console.log(inputVal);
         localStorage.setItem('input', inputVal);
     })
+}*/
+
+//stores input in local storage
+function saveInput() {
+    $('.time-block').each(function(){
+       
+        console.log($('.time-block'));
+        var inputVal = $('.input-value').val(); //have to grab this based on what $(time-block) console logs here
+        var timeBlockId = //timeBlocksEl.attr('id');//have to grab that id similarly
+        console.log(inputVal);
+        localStorage.setItem(timeBlockId, inputVal);
+    })
 }
+//saveInput();
 
 //click event for saving --> how to I identify all the 'save' buttons???
-$('.btn').each().on('click', function() {
-    
+$('.btn').on('click', function() {
+    console.log('clicky')
     saveInput();
 })
 
