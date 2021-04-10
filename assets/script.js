@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 var currentDayEl = $('#currentDay');
 var timeContainer = $('.container');
-//var timeBlocksEl;
+
 //creating timeblock elements by appending divs to container
 var timeDivs = $('<div>');
 timeContainer.append(timeDivs);
@@ -40,15 +40,14 @@ async function generateTimeBlocks() {
         timeBlocksEl.addClass('input-group-text time-block');
         inputEl.addClass('form-control input-value');
         buttonEl.addClass('btn btn-outline-info bg-info text-white m-1');
+        //added element attributes
         inputEl.attr('placeholder', 'Schedule Event');
         inputEl.attr('type', 'text');
         inputEl.attr('aria-label', 'Schedule Event');
        buttonEl.attr('type', 'button');
 
         timeBlocksEl.attr('id', i + 9); //adds id to each time block based on the hour
-
-        timeBlocksEl.text(timeHours[i]);//inserts a different time from object to each time block
-        
+        timeBlocksEl.text(timeHours[i]);//inserts a different time from object to each time block 
         inputEl.val(localStorage.getItem(i + 9)); //input values remain in the input with page refresh
 
         timeDivs.append(timeBlocksEl);
