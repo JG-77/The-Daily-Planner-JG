@@ -2,6 +2,7 @@
 Github repository:https://github.com/JG-77/The-Daily-Planner-JG.git 
 
 Github Pages link:https://jg-77.github.io/The-Daily-Planner-JG/ 
+![The Daily Business Planner Screenshot](https://user-images.githubusercontent.com/76461629/114281240-25c90b00-99f2-11eb-9d5a-aa46edb13631.png)
 
 
 ## Description
