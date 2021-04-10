@@ -44,7 +44,9 @@ async function generateTimeBlocks() {
         //adds id to each time block based on the hour
         timeBlocksEl.attr('id', i + 9);
 
-        timeBlocksEl.text(timeHours[i]);
+        timeBlocksEl.text(timeHours[i]);//inserts a different time to each time block
+        
+        inputEl.val(localStorage.getItem(i + 9)); //input values remain in the input with page refresh
 
         timeDivs.append(timeBlocksEl);
         timeBlocksEl.append(inputEl);
@@ -95,11 +97,11 @@ $('.btn').on('click', function() {
 })
 
 //???
-var timeBlockId = $('.time-block').attr('id');
-$('#9').val(localStorage.getItem('9'));
+//var timeBlockId = $('.time-block').attr('id');
+//$('#9').val(localStorage.getItem('9'));
 
 //gets events from local storage
-function getSavedInput() {
+/*function getSavedInput() {
 
     var inputVal = $('.time-block').children('input').val();
     //var show = inputVal.val(localStorage.getItem(timeBlockId));
@@ -109,7 +111,7 @@ function getSavedInput() {
     console.log(display);
     //show.text(display); 
     //how to i get storage values to display back into input sections?
-}
+}*/
 
 //function getSavedInput() {
    // var inputVal = $('.time-block').children('input');
