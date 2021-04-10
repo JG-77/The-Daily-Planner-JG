@@ -1,18 +1,18 @@
+$( document ).ready(function() {
 var currentDayEl = $('#currentDay');
 var timeContainer = $('.container');
-var timeBlocksEl;
+//var timeBlocksEl;
 //creating timeblock elements by appending divs to container
 var timeDivs = $('<div>');
 timeContainer.append(timeDivs);
 
 //added footer
 var footerEl = $('<footer>');
-footerEl.addClass('bg-success text-white mt-4');
+footerEl.addClass('bg-info text-white mt-4');
 var h2El = $('<h2>Have a great day!</h2>');
-footerEl.append(h2El); //????
-
-$( document ).ready(function() {
-});
+h2El.addClass('text-center p-2')
+footerEl.append(h2El); 
+timeContainer.append(footerEl);
 
 //variable object containing array of times
 var timeHours = [
@@ -39,7 +39,7 @@ async function generateTimeBlocks() {
         //styling for time blocks
         timeBlocksEl.addClass('input-group-text time-block');
         inputEl.addClass('form-control input-value');
-        buttonEl.addClass('btn btn-outline-success bg-success text-white m-1');
+        buttonEl.addClass('btn btn-outline-info bg-info text-white m-1');
         inputEl.attr('placeholder', 'Schedule Event');
        
         timeBlocksEl.attr('id', i + 9); //adds id to each time block based on the hour
@@ -102,3 +102,4 @@ function currentDayAndTime() {
 
 setInterval(currentDayAndTime, 1000);
 
+});
