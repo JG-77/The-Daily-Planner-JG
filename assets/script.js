@@ -69,17 +69,10 @@ function doColorCode() { //wrapped in a function
 async function run(){
     await generateTimeBlocks(); //this will wait for this function to finish before moving forward
     doColorCode(); //once the time blocks are generated handle the styling
+    getSavedInput();
 };
 
-run();//runs function
-
-/*function saveInput() {
-    $('.input-value').each(function(){
-        var inputVal = $(this).val();
-        console.log(inputVal);
-        localStorage.setItem('input', inputVal);
-    })
-}*/
+run();//runs function at page load
 
 //stores input in local storage
 function saveInput() {
@@ -92,16 +85,18 @@ function saveInput() {
         localStorage.setItem(timeBlockId, inputVal);
     })
 }
-saveInput();
 
 //click event for saving --> how to I identify all the 'save' buttons???
 $('.btn').on('click', function() {
     saveInput();
+    getSavedInput();
 })
 
 //gets events from local storage
 function getSavedInput() {
-
+    var inputVal = $('.time-block').children('input').val();
+    inputVal.text(localStorage.getItem(timeBlockId, inputVal));
+    
 }
 
 //Displays current date and time on jumbotron
