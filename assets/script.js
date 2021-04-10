@@ -41,10 +41,10 @@ async function generateTimeBlocks() {
         inputEl.addClass('form-control input-value');
         buttonEl.addClass('btn btn-outline-success bg-success text-white m-1');
         inputEl.attr('placeholder', 'Schedule Event');
-        //adds id to each time block based on the hour
-        timeBlocksEl.attr('id', i + 9);
+       
+        timeBlocksEl.attr('id', i + 9); //adds id to each time block based on the hour
 
-        timeBlocksEl.text(timeHours[i]);//inserts a different time to each time block
+        timeBlocksEl.text(timeHours[i]);//inserts a different time from object to each time block
         
         inputEl.val(localStorage.getItem(i + 9)); //input values remain in the input with page refresh
 
@@ -76,7 +76,6 @@ function doColorCode() {
 async function run(){
     await generateTimeBlocks(); //this will wait for this function to finish before moving forward
     doColorCode(); //once the time blocks are generated handle the styling
-    getSavedInput();
 };
 
 run();//runs function at page load
@@ -93,38 +92,12 @@ function saveInput() {
 //click event for saving 
 $('.btn').on('click', function() {
     saveInput();
-    getSavedInput();
 })
-
-//???
-//var timeBlockId = $('.time-block').attr('id');
-//$('#9').val(localStorage.getItem('9'));
-
-//gets events from local storage
-/*function getSavedInput() {
-
-    var inputVal = $('.time-block').children('input').val();
-    //var show = inputVal.val(localStorage.getItem(timeBlockId));
-    var display = localStorage.getItem(timeBlockId);
-
-    console.log(inputVal);
-    console.log(display);
-    //show.text(display); 
-    //how to i get storage values to display back into input sections?
-}*/
-
-//function getSavedInput() {
-   // var inputVal = $('.time-block').children('input');
-   // var timeBlockId = $(this).attr('id');
-   // var display = localStorage.getItem('timeBlockId');
-   // console.log(display);
-   // inputVal.text(display);
 
 //Displays current date and time on jumbotron
 function currentDayAndTime() {
     var currently = moment().format('[Today is] MMM DD, YYYY [at] hh:mm:ss a');
-    currentDayEl.text(currently);
-    
+    currentDayEl.text(currently); 
 }
 
 setInterval(currentDayAndTime, 1000);
