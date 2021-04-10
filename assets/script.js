@@ -41,7 +41,10 @@ async function generateTimeBlocks() {
         inputEl.addClass('form-control input-value');
         buttonEl.addClass('btn btn-outline-info bg-info text-white m-1');
         inputEl.attr('placeholder', 'Schedule Event');
-       
+        inputEl.attr('type', 'text');
+        inputEl.attr('aria-label', 'Schedule Event');
+       buttonEl.attr('type', 'button');
+
         timeBlocksEl.attr('id', i + 9); //adds id to each time block based on the hour
 
         timeBlocksEl.text(timeHours[i]);//inserts a different time from object to each time block
@@ -64,11 +67,11 @@ function doColorCode() {
         var blockID = $(this).attr("id");
         
         if (parseInt(blockID) < currentHour) {
-            $(this).addClass('past');
+            $(this).addClass('past border-info text-black');
         } else if (parseInt(blockID) === currentHour) {
-            $(this).addClass('present');
+            $(this).addClass('present border-info');
         } else {
-            $(this).addClass('future');
+            $(this).addClass('future border-info');
         }
     })
 }
