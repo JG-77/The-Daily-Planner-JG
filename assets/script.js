@@ -1,6 +1,7 @@
 var currentDayEl = $('#currentDay');
 var timeContainer = $('.container');
-var timeBlocksEl;
+var buttonEl = $('.btn');
+//var timeBlocksEl;
 //creating timeblock elements by appending divs to container
 var timeDivs = $('<div>');
 timeContainer.append(timeDivs);
@@ -23,16 +24,16 @@ var timeHours = [
 
 
 //loop to create time blocks and styling of elements using Bootstrap classes
-async function generateTimeBlocks() { //wrapped in a function
+async function generateTimeBlocks() { 
     for (var i = 0; i < timeHours.length; i++) {
 
-        timeBlocksEl = $('<div>');
+       var timeBlocksEl = $('<div>');
         var inputEl = $('<input>');
-        var buttonEl = $('<button>Save</button>')
+        buttonEl = $('<button>Save</button>')
 
         //styling for time blocks
         timeBlocksEl.addClass('input-group-text  time-block');
-        inputEl.addClass('form-control');
+        inputEl.addClass('form-control input-value');
         buttonEl.addClass('btn btn-outline-success bg-success text-white');
         inputEl.attr('placeholder', 'Schedule Event');
         //adds id to each time block based on the hour
@@ -74,11 +75,18 @@ run();//runs function
 
 //stores input in local storage
 function saveInput() {
-
+    $('.input-value').each(function(){
+        var inputVal = $(this).val();
+        console.log(inputVal);
+        localStorage.setItem('input', inputVal);
+    })
 }
 
 //click event for saving 
-
+buttonEl.on('click', function() {
+    
+    saveInput();
+})
 
 //gets events from local storage
 function getSavedInput() {
