@@ -94,7 +94,7 @@ $('.btn').on('click', function() {
     getSavedInput();
 })
 
-
+//???
 var timeBlockId = $('.time-block').attr('id');
 $('#9').val(localStorage.getItem('9'));
 
@@ -110,6 +110,13 @@ function getSavedInput() {
     //show.text(display); 
     //how to i get storage values to display back into input sections?
 }
+
+//function getSavedInput() {
+   // var inputVal = $('.time-block').children('input');
+   // var timeBlockId = $(this).attr('id');
+   // var display = localStorage.getItem('timeBlockId');
+   // console.log(display);
+   // inputVal.text(display);
 
 //Displays current date and time on jumbotron
 function currentDayAndTime() {
