@@ -84,8 +84,8 @@ run();//runs function
 //stores input in local storage
 function saveInput() {
     $('.time-block').each(function(){
-        var inputVal = $('.input-value').val(); //have to grab this based on what $(time-block) console logs here
-        var timeBlockId = timeBlocksEl.attr('id');//have to grab that id similarly
+        var inputVal = $(this).children('input').val(); //have to grab this based on what $(time-block) console logs here
+        var timeBlockId = $(this).attr('id');//have to grab that id similarly
         //console.log($(this))
         //console.log($('.time-block'));
         //console.log(inputVal);
