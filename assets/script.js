@@ -90,15 +90,16 @@ $('.btn').on('click', function() {
 
 //gets events from local storage
 function getSavedInput() {
-    $('.time-block').each(function(){
-    var inputVal = $(this).children('input');
-    var timeBlockId = $(this).attr('id');
+    
+    var timeBlockId = $('.time-block').attr('id');
+    var inputVal = $('.time-block').children('input').val();
+    var show = inputVal.val(localStorage.getItem(timeBlockId));
     var display = localStorage.getItem(timeBlockId);
+
+    console.log(inputVal);
     console.log(display);
-    inputVal.text(display); 
-    console.log(inputVal);//How do I get input to text,content saved entries??
+    show.text(display); 
     //how to i get storage values to display back into input sections?
-    })
 }
 
 //Displays current date and time on jumbotron
