@@ -5,6 +5,12 @@ var timeBlocksEl;
 var timeDivs = $('<div>');
 timeContainer.append(timeDivs);
 
+//added footer
+var footerEl = $('<footer>');
+var h2El = $('<h2>Have a great day!</h2>');
+footerEl.append(h2El);
+footerEl.addClass('bg-success text-white mt-4');
+
 $( document ).ready(function() {
 });
 
@@ -31,7 +37,7 @@ async function generateTimeBlocks() {
         var buttonEl = $('<button>Save</button>')
 
         //styling for time blocks
-        timeBlocksEl.addClass('input-group-text  time-block');
+        timeBlocksEl.addClass('input-group-text time-block');
         inputEl.addClass('form-control input-value');
         buttonEl.addClass('btn btn-outline-success bg-success text-white');
         inputEl.attr('placeholder', 'Schedule Event');
@@ -90,7 +96,7 @@ $('.btn').on('click', function() {
 
 //gets events from local storage
 function getSavedInput() {
-    
+
     var timeBlockId = $('.time-block').attr('id');
     var inputVal = $('.time-block').children('input').val();
     var show = inputVal.val(localStorage.getItem(timeBlockId));
