@@ -84,19 +84,18 @@ run();//runs function
 //stores input in local storage
 function saveInput() {
     $('.time-block').each(function(){
-       
-        console.log($('.time-block'));
         var inputVal = $('.input-value').val(); //have to grab this based on what $(time-block) console logs here
-        var timeBlockId = //timeBlocksEl.attr('id');//have to grab that id similarly
-        console.log(inputVal);
+        var timeBlockId = timeBlocksEl.attr('id');//have to grab that id similarly
+        //console.log($(this))
+        //console.log($('.time-block'));
+        //console.log(inputVal);
         localStorage.setItem(timeBlockId, inputVal);
     })
 }
-//saveInput();
+saveInput();
 
 //click event for saving --> how to I identify all the 'save' buttons???
 $('.btn').on('click', function() {
-    console.log('clicky')
     saveInput();
 })
 
