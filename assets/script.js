@@ -2,8 +2,7 @@ $( document ).ready(function() {
 var currentDayEl = $('#currentDay');
 var timeContainer = $('.container');
 
-//creating timeblock elements by appending divs to container
-var timeDivs = $('<div>');
+var timeDivs = $('<div>');//creating timeblock elements by appending divs to container
 timeContainer.append(timeDivs);
 
 //added footer
@@ -26,7 +25,6 @@ var timeHours = [
     '4 P.M.',
     '5 P.M.',
 ];
-
 
 //loop to create time blocks and styling of elements using Bootstrap classes
 async function generateTimeBlocks() { 
@@ -79,7 +77,6 @@ async function run(){
     await generateTimeBlocks(); //this will wait for this function to finish before moving forward
     doColorCode(); //once the time blocks are generated handle the styling
 };
-
 run();//runs function at page load
 
 //stores input in local storage
@@ -102,7 +99,6 @@ function currentDayAndTime() {
     currentDayEl.text(currently); 
     currentDayEl.addClass('hour bg-info');
 }
-
 setInterval(currentDayAndTime, 1000);
 
 });
