@@ -1,6 +1,6 @@
 var currentDayEl = $('#currentDay');
 var timeContainer = $('.container');
-var buttonEl = $('.btn');
+//var buttonEl = $('.btn');
 //var timeBlocksEl;
 //creating timeblock elements by appending divs to container
 var timeDivs = $('<div>');
@@ -29,7 +29,7 @@ async function generateTimeBlocks() {
 
        var timeBlocksEl = $('<div>');
         var inputEl = $('<input>');
-        buttonEl = $('<button>Save</button>')
+        var buttonEl = $('<button>Save</button>')
 
         //styling for time blocks
         timeBlocksEl.addClass('input-group-text  time-block');
@@ -82,8 +82,8 @@ function saveInput() {
     })
 }
 
-//click event for saving 
-buttonEl.on('click', function() {
+//click event for saving --> how to I identify all the 'save' buttons???
+$('.btn').each().on('click', function() {
     
     saveInput();
 })
